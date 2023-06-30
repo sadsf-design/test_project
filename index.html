@@ -1,144 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
- 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>财务系统1.0</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
- 
-        body {
-            text-align: center;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 100%;
-        }
- 
-        p {
-            position: absolute;
-            right: 450px;
-        }
- 
-        .shuchukuang {
-            width: 290px;
-            height: 80px;
-            margin: 60px auto 5px auto;
-            font-size: 0px;
-        }
- 
-        .shuchukuang input {
-            margin: 0;
-            border-radius: 30px;
-            cursor: not-allowed;
-        }
- 
-        .shuchukuang .outbefore {
-            width: 290px;
-            height: 30px;
-            border: none;
-            border-radius: 0;
-            font-size: 20px;
-            color: #d0d0d1;
-        }
- 
-        .shuchukuang .outafter {
-            width: 290px;
-            height: 50px;
-            border-radius: 0;
-            font-size: 45px;
-            border: none;
-        }
- 
-        .gongneng {
-            font-size: 0;
-        }
- 
-        input {
-            width: 70px;
-            height: 45px;
-            margin: 2px;
-            box-shadow: 2px 2px 2px gray;
-            background-color: #b490b8;
-            border: none;
-            border-radius: 25px;
-            outline: none;
-            cursor: pointer;
-        }
- 
-        input:hover {
-            background-color: aqua;
-        }
-    </style>
+    <title>Title</title>
 </head>
- 
 <body>
-    <h1>财务系统1.0</h1>
-    <p>---键盘使用也可，shift清零</p>
-    <div class="shuchukuang">
-        <input type="text" class="outbefore" id="shuchukuangbefore" readonly="readonly">
-        <input type="text" class="outafter" id="shuchukuangafter" readonly="readonly">
+    <!--邮箱验证-->
+    <div>
+        总计账目：<input type="email" name="useremail">
     </div>
-    <div class="gongneng">
-        <input type="button" value="平方" id="平方">
-        <input type="button" value="+/-" id="+/-">
-        <input type="button" value="CE" id="CE">
-        <input type="button" value="退格" id="退格">
+    <!--Url验证-->
+    <div>
+        分账1：<input type="url" name="userurl">
     </div>
-    <script>
-        // 定义键盘事件
-        document.body.onkeydown = function (e) {
-            // 键盘事件:使用键盘时会触发其他按钮点击事件，导致字符多输入情况
-            e.preventDefault();
-            // 补全因两个input（shuchukuangbefore和shuchukuangafter）导致的加减乘除键盘的修正
-            if (e.keyCode == 106 || e.keyCode == 107 || e.keyCode == 109 || e.keyCode == 111) {
-                if (shuchukuangafter.value != 0) {
-                    shuchukuangbefore.value = shuchukuangafter.value;
-                    // var yuzeliang = e.keyCode;
-                    // shuchukuangbefore.value += document.getElementById(yuzeliang - 96).value;
-                }
-            }
-            // 定义十个数字和加减乘除和.的键盘事件，此处i是它们的键码值
-            for (var i = 96; i <= 111; i++) {
-                if (e.keyCode === i) {
-                    shuchukuangbefore.value += document.getElementById(i - 96).value;
-                }
-            }
-            // 定义enter事件，计算出多少数值
-            if (e.keyCode === 13) {
-                try {
-                    function isInteger(obj) {
-                        return (obj | 0) === obj
-                    }
-                    if (isInteger((eval(shuchukuangbefore.value))) == true) {
-                        result = eval(shuchukuangbefore.value);
-                    }
-                    else {
-                        result = eval(shuchukuangbefore.value).toFixed(2);
-                    }
-                }
-                catch (err) {
-                    result = err;
-                }
-                shuchukuangbefore.value += "=";
-                shuchukuangafter.value = result;
-            }
-            // 定义退格backspace事件
-            if (e.keyCode === 8) {
-                var back = shuchukuangbefore.value;
-                var Backed = back.substring(0, back.length - 1);
-                shuchukuangbefore.value = Backed;
-            }
-            //定义清零按钮shift
-            if (e.keyCode === 16) {
-                shuchukuangbefore.value = "";
-                shuchukuangafter.value = "";
-            }
-        }
-    </script>
+    <!--数字验证-->
+    <div>
+        分账2：<input type="number" name="usernumber">
+    </div>
+    <!--滑块 -->
+    <div>
+        汇率调整： <input type="range" name="voice" min="0" max="100" step="2">
+    </div>
+    <!--搜索框-->
+    <div>
+        其他账单：<input type="search" name="mySearch">
+    </div>
+    <div>
 </body>
- 
 </html>
