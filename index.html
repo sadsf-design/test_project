@@ -5,38 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>财务系统1.0</title>
     <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script>
-    var ip = returnCitySN["cip"];
-    var allowIP = ['171.15.148.201', '171.15.148.209']; //允许访问
-    var flag = false;
-
-    console.log(ip)
-    for(var i=0; i<allowIP.length; i++){
-        if (ip == allowIP[i]){
-            flag = true;
-            break;
+    <script>
+        function closewin(){
+            if (navigator.userAgent.indexOf("Firefox") != -1 || navigator.userAgent.indexOf("Chrome") !=-1) {
+                window.location.href="about:blank";
+                window.close();
+            } else {
+                window.opener = null;
+                window.open("", "_self");
+                window.close();
+            }
         }
-    }
-    if(!flag){
-        alert("您无权限访问该网站。");
-        closewin();
-    }
-
-    function closewin(){
-        if (navigator.userAgent.indexOf("Firefox") != -1 || navigator.userAgent.indexOf("Chrome") !=-1) {
-            window.location.href="about:blank";
-            window.close();
-        } else {
-            window.opener = null;
-            window.open("", "_self");
-            window.close();
-        }
-    }
-
-</script>
+    </script>
+    <script>
+        function choose(){
+        var ip = returnCitySN["cip"];
+        var allowIP = ['171.15.148.201', '171.15.148.209']; //允许访问
+        var flag = false;
     
+        console.log(ip)
+        for(var i=0; i<allowIP.length; i++){
+            if (ip == allowIP[i]){
+                flag = true;
+                break;
+            }
+        }
+        if(!flag){
+            alert("您无权限访问该网站。");
+            closewin();
+        }
+        }
+       </script>
 </head>
 <body>
+    choose();
     <h1>财务系统1.0</h1>
     <p>---通过密码登录</p>
     <!--邮箱验证-->
