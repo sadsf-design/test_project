@@ -46,23 +46,6 @@
 			
 			document.myform.txtResult.value=num1+num2;
 		}
-		
-		//判断单选框是否选中
-		function danxuankuang(){
-			var a=5;//定义第三方变量，设定一个不在单选框值之内的值
-			for(var i=0;i < str.length; i ++){
-				if(str[i].checked == true){
-					a=i;
-					return a;
-				}						
-			}	
-			if(a==0 || a==1 || a==2 || a==3){
-				
-			}else{
-				alert("请先选择单选框！");
-			}		
-		}	
-		
 	</script>
 </body>
 </html>
