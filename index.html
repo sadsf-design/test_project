@@ -16,7 +16,7 @@
 		        总计账目：<input name="txtResult" type="text" id="txtResult" autocomplete="off"/>
 
 			汇率调整：<input type="range" name="rate" id="rate" min="0" max="10" step="0.1"/>
-			当前汇率：<input type="text" name="number5" id="number5" autocomplete="off"/>
+			当前汇率：<input name="number5" type="text" id="number5" autocomplete="off"/>
 
 			其他账目1：<input type="text" name="number3" id="number3" autocomplete="off"/>
 			其他账目2：<input type="text" name="number4" id="number4" autocomplete="off"/>
@@ -35,7 +35,7 @@
 			num1 = parseFloat(document.myform.number1.value);
 			num2 = parseFloat(document.myform.number2.value);
 			rate = parseFloat(document.myform.rate.value);
-			document.myform.txtResult.value = rate;
+			document.myform.number5.value = rate;
 				
 			//判断文本框是否为空
 			//注意此处文本框获取值时使用了parseFloat转换，所以当文本框为空时是NaN，并不是""和null，所以需要用到isNaN来判断。
