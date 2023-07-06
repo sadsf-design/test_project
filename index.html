@@ -8,11 +8,7 @@
 <body>
    <form action="" method="post" name="myform" id="myform">
 		<div class="wrapper" id="_wrapper">        	
-			操作数1：<input type="text" name="number1" id="number1" autocomplete="off"/><br><br>
-			<input type="radio" name="count" id="" value="加法"/>加法
-			<input type="radio" name="count" id="" value="减法"/>减法
-			<input type="radio" name="count" id="" value="乘法"/>乘法
-			<input type="radio" name="count" id="" value="除法"/>除法<br><br>
+			操作数1：<input type="text" name="number1" id="number1" autocomplete="off"/>
 			操作数2：<input type="text" name="number2" id="number2" autocomplete="off"/><br><br>	
 			
 			<input type="button" value="计算" id="" onclick="jisuan()"/>
@@ -48,18 +44,7 @@
 				danxuankuang();
 			}
 			
-			if(str[0].checked == true){
-				document.myform.txtResult.value=num1+num2;
-			}
-			if(str[1].checked == true){
-				document.myform.txtResult.value=num1-num2;
-			}
-			if(str[2].checked == true){
-				document.myform.txtResult.value=num1*num2;
-			}
-			if(str[3].checked == true){
-				document.myform.txtResult.value=num1/num2;
-			}		
+			document.myform.txtResult.value=num1+num2;
 		}
 		
 		//判断单选框是否选中
